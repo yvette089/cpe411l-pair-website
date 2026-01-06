@@ -1,0 +1,50 @@
+login.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Activity 2 </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <div class="options">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember Me</label>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+        <p class="register-link">Don't have an account? <a href="register.html">Register here</a></p>
+        <p id="error-message" class="error-message"></p>
+    </div>
+
+    <script>
+        // Dummy login check
+        document.getElementById('loginForm').addEventListener('submit', function(e){
+            e.preventDefault(); // prevent actual form submission
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMsg = document.getElementById('error-message');
+
+            // Simple dummy check
+            if(username === "user" && password === "1234"){
+                alert("Login successful!");
+                window.location.href = "dashboard.html"; // redirect to dashboard
+            } else {
+                errorMsg.textContent = "Invalid username or password.";
+            }
+        });
+    </script>
+</body>
+</html>
